@@ -13,6 +13,9 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// --- Deliver Static React build ---
+app.use(express.static("client/build"));
+
 // --- Mongoose/MongoDB connection settings ---
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost:watchdawg", {
@@ -34,6 +37,11 @@ app.get("/api/config", (req, res) => {
   res.json({
     success: true,
   });
+});
+
+// --- Get: Wildcard route to deliver React index ---
+app.get("*", (req, res) => {
+  res.sendFile(pat.join(__dirname, "client/build/index.html"));
 });
 
 // --- Listen on designated port ---
