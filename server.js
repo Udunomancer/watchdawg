@@ -6,6 +6,9 @@ const mongoose = require("mongoose");
 // --- Initialize Express app ---
 const app = express();
 
+// --- Require routes directory ---
+const routes = require("./routes");
+
 // --- Set Express PORT ---
 const PORT = process.env.PORT || 3001;
 
@@ -38,6 +41,10 @@ app.get("/api/config", (req, res) => {
     success: true,
   });
 });
+
+// --- Routes to DB/React ---
+// Reference /routes for complete listing of used routes
+app.use(routes);
 
 // --- Get: Wildcard route to deliver React index ---
 app.get("*", (req, res) => {
