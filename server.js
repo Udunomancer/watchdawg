@@ -14,27 +14,29 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // --- Mongoose/MongoDB connection settings ---
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:watchdawg", {
+mongoose
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:watchdawg", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
-    useCreateIndex: true
-}).then((result) => {
+    useCreateIndex: true,
+  })
+  .then((result) => {
     console.log("Successfully connected to MongoDB");
-}).catch((err) => {
+  })
+  .catch((err) => {
     console.log("Error connecting to MongoDB", err);
-});
+  });
 
 // --- Server Routes ---
 // GET: Config route, confirm server live
 app.get("/api/config", (req, res) => {
-    res.json({
-        success: true,
-    });
+  res.json({
+    success: true,
+  });
 });
 
 // --- Listen on designated port ---
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
-
