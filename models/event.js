@@ -24,7 +24,7 @@ const eventSchema = new Schema({
     },
     time: {
         type: Date,
-        required: "A Time-stamp is required for an event.",
+        // required: "A Time-stamp is required for an event.",
     },
     files: {
         type: Array
