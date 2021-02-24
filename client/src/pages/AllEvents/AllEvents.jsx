@@ -14,10 +14,15 @@ function AllEvents() {
       .catch((err) => {
         console.log(err);
       });
-  },[]);
+  }, []);
 
   return (
     <div className="container">
+      <div className="row">
+        <div className="col s12">
+          <Link to="/events/new" className="waves-effect waves-light btn">Add New Event</Link>
+        </div>
+      </div>
       <div className="row">
         {events.map((event) => (
           <div className="col s4" key={event._id}>
