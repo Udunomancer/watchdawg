@@ -1,11 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 function SingleEvent() {
-    return (
-        <div>
-            <h1>Output for a single restaurant will go here</h1>
+  const [event, setEvent] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`/api/events/${id}`)
+      .then((response) => {
+        setEvent(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },[]);
+
+  return (
+    <div className="container">
+        <div className="row">
+            <div className="col s12">
+                <h1>{event.title}</h1>
+            </div>
         </div>
-    );
-};
+        <div className="row">
+            <div className="col s12">
+                <p>Description: {event.description}</p>
+                <p>Location: {event.latitude}, {event.longitude}</p>
+            </div>
+        </div>
+        <div className="row">
+            <div className="col s12">
+                MEDIA WILL GO HERE
+            </div>
+        </div>
+    </div>
+  );
+}
 
 export default SingleEvent;
