@@ -10,6 +10,6 @@ router.use("/api", apiRoutes);
 // --- If not /api route, deliver react ---
 router.use(function(req, res) {
     res.sendFile(path.join(__dirname, "../client/build/index.html"))
-})
+});
 
 module.exports = router;
