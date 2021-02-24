@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function AllEvents() {
   const [events, setEvents] = useState([
@@ -45,7 +46,7 @@ function AllEvents() {
                     </p>
                   </div>
                   <div className="card-action">
-                    <a href="/">This is a link</a>
+                    <Link to={`/events/${event._id}`}>View Event</Link>
                   </div>
                 </div>
               </div>
