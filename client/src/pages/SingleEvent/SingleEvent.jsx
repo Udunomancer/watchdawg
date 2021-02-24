@@ -15,7 +15,7 @@ function SingleEvent() {
       .catch((err) => {
         console.log(err);
       });
-  },[]);
+  },[id]);
 
   return (
     <div className="container">

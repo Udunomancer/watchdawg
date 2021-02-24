@@ -3,15 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function AllEvents() {
-  const [events, setEvents] = useState([
-    {
-      title: "",
-      description: "",
-      latitude: 0,
-      longitude: 0,
-      files: [],
-    },
-  ]);
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     axios
@@ -22,13 +14,13 @@ function AllEvents() {
       .catch((err) => {
         console.log(err);
       });
-  });
+  },[]);
 
   return (
     <div className="container">
       <div className="row">
         {events.map((event) => (
-          <div className="col s4">
+          <div className="col s4" key={event._id}>
             <div className="row">
               <div className="col s12 m7">
                 <div className="card">
