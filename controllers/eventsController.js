@@ -38,4 +38,10 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+  findEventRecordsWithId: function (req, res) {
+    db.Event.findById(req.params.id)
+      .populate("records")
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(400).json(err));
+  },
 };
