@@ -11,6 +11,8 @@ router
 
 router
   .route("/:id")
-  .get(recordsController.findById);
+  .get(recordsController.findById)
+  .put(recordsController.update)
+  .delete(recordsController.remove);
 
 module.exports = router;

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-function AllEvents() {
-  const [events, setEvents] = useState([]);
+function AllRecords() {
+  const [records, setRecords] = useState([]);
 
   useEffect(() => {
     axios
-      .get("/api/events")
+      .get("/api/records")
       .then((response) => {
-        setEvents(response.data);
+        setRecords(response.data);
       })
       .catch((err) => {
         console.log(err);
@@ -20,14 +20,14 @@ function AllEvents() {
     <div className="container">
       <div className="row">
         <div className="col s12">
-          <Link to="/events/new" className="waves-effect waves-light btn">
+          <Link to="/records/new" className="waves-effect waves-light btn">
             Add New Event
           </Link>
         </div>
       </div>
       <div className="row">
-        {events.map((event) => (
-          <div className="col s4" key={event._id}>
+        {records.map((record) => (
+          <div className="col s4" key={record._id}>
             <div className="row">
               <div className="col s12 m7">
                 <div className="card">
@@ -36,16 +36,13 @@ function AllEvents() {
                       alt="Sample"
                       src="https://via.placeholder.com/200x100"
                     />
-                    <span className="card-title">{event.title}</span>
+                    <span className="card-title">Title</span>
                   </div>
                   <div className="card-content">
-                    <p>Description: {event.description}</p>
-                    <p>
-                      Location: {event.latitude}, {event.longitude}
-                    </p>
+                    <p>Record Details will go here</p>
                   </div>
                   <div className="card-action">
-                    <Link to={`/events/${event._id}`}>View Event</Link>
+                    <Link to={`/records/${record._id}`}>View Record</Link>
                   </div>
                 </div>
               </div>
@@ -57,4 +54,4 @@ function AllEvents() {
   );
 }
 
-export default AllEvents;
+export default AllRecords;
