@@ -21,7 +21,7 @@ function AllRecords() {
       <div className="row">
         <div className="col s12">
           <Link to="/records/new" className="waves-effect waves-light btn">
-            Add New Event
+            Add New Record
           </Link>
         </div>
       </div>

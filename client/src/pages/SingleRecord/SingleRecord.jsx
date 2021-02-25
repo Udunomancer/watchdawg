@@ -57,3 +57,5 @@ function SingleRecord() {
     </div>
   );
 }
+
+export default SingleRecord;
