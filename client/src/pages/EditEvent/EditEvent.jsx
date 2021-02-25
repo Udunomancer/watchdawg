@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
-import EventForm from "../../components/EventForm";
+import EventForm from "../../components/EventForm/EventForm";
 
 function EditEvent() {
   const history = useHistory();

@@ -21,14 +21,6 @@ const recordSchema = new Schema({
         type: String,
         required: "Record type required"
     },
-    event_id: {
-        type: Schema.Types.ObjectId,
-        ref: "Event"
-    },
-    owner_id: {
-        type: Schema.Types.ObjectId,
-        ref: "User"
-    }
 })
 
 const Record = mongoose.model("Record", recordSchema);
