@@ -6,6 +6,11 @@ const recordsController = require("../../controllers/recordsController");
 // --- Routes ---
 router
   .route("/")
-  .get(recordsController.findAll);
+  .get(recordsController.findAll)
+  .post(recordsController.create);
+
+router
+  .route("/:id")
+  .get(recordsController.findById);
 
 module.exports = router;

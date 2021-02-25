@@ -12,7 +12,6 @@ const recordSchema = new Schema({
     },
     cloud_url: {
         type: String,
-        required: "Cloudinary URL required",
     },
     description: {
         type: String,
