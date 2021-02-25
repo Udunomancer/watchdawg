@@ -29,7 +29,7 @@ function NewEvent() {
   return (
     <div className="container">
       <div className="row">
-        <EventForm handleFormSubmit={handleFormSubmit}/>
+        <EventForm btnTxt="Add Event" handleFormSubmit={handleFormSubmit}/>
       </div>
     </div>
   );
