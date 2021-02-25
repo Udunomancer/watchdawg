@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 
 function SingleEvent() {
   const [event, setEvent] = useState({});
   const { id } = useParams();
+  const history = useHistory();
+
+  function handleDeleteClick() {
+    axios
+      .delete(`/api/events/${id}`)
+      .then((response) => {
+        console.log(response.data);
+        history.push("/events");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   useEffect(() => {
     axios
@@ -28,6 +41,12 @@ function SingleEvent() {
           >
             Edit Event
           </Link>
+          <button
+            className="waves-effect waves-light btn"
+            onClick={handleDeleteClick}
+          >
+            DELETE
+          </button>
         </div>
       </div>
       <div className="row">
