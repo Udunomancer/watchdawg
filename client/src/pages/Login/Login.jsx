@@ -66,7 +66,7 @@ function Login({ setToken }) {
                 name="password"
                 value={password}
                 onChange={(e) => {
-                  setPassword(e.target.value);
+                  setPassword(e.target.value.toLowerCase());
                 }}
               />
               <label htmlFor="password">Password</label>

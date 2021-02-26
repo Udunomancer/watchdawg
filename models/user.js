@@ -27,6 +27,7 @@ const userSchema = new Schema({
     type: String,
     trim: true,
     required: "Email is a required field",
+    unique: true,
   },
   user_role: {
     type: Boolean,
@@ -41,6 +42,11 @@ const userSchema = new Schema({
     },
   ],
 });
+
+userSchema.pre("save", function(next) {
+  this.email = this.email.toLowerCase();
+  next();
+})
 
 const User = mongoose.model("User", userSchema);
 

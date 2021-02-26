@@ -35,7 +35,7 @@ module.exports = {
   },
   // Compare user credentials to submitted information to confirm identity
   loginUser: function (req, res) {
-    db.User.findOne({ email: req.body.email })
+    db.User.findOne({ email: req.body.email.toLowerCase() })
       .then((foundUser) => {
         bcrypt.compare(req.body.password, foundUser.password, (err, result) => {
           if (result) {

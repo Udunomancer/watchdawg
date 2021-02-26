@@ -1,4 +1,6 @@
 // === Server ===
+// --- Initialize env files ---
+require("dotenv").config();
 // --- Require Express ---
 const express = require("express");
 // --- Require Mongoose ---
