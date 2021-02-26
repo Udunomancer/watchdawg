@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 // --- import universal NavBar ---
 import NavBar from "./components/NavBar/NavBar";
 // --- import pages for Router ---
+import Admin from "./pages/Admin/Admin";
 import AllEvents from "./pages/AllEvents/AllEvents";
 import AllRecords from "./pages/AllRecords/AllRecords";
 import EditEvent from "./pages/EditEvent/EditEvent";
@@ -23,6 +24,7 @@ function App() {
         <Switch>
           {/* General Page Routes */}
           <Route exact path="/" component={Home}/>
+          <Route exact path="/admin" component={Admin}/>
           {/* Event Page Routes */}
           <Route exact path="/events" component={AllEvents}/>
           <Route exact path="/events/new" component={NewEvent}/>

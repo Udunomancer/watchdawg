@@ -50,9 +50,17 @@ function SingleRecord() {
         </div>
       </div>
       <div className="row">
-          <div className="col s12">
-              <p>Record Details will go here</p>
-          </div>
+        <div className="col s12">
+          <h1>Media File will go here</h1>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col s6">
+          <p>Record Details will go here</p>
+        </div>
+        <div className="col s6">
+          <p>Comments section will go here</p>
+        </div>
       </div>
     </div>
   );

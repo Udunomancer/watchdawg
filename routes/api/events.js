@@ -19,4 +19,8 @@ router
   .route("/:id/records")
   .get(eventsController.findEventRecordsWithId)
 
+router
+  .route("/:id/records/:rid")
+  .put(eventsController.addRecordToEvent);
+
 module.exports = router;
