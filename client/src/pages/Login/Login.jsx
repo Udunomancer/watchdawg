@@ -11,26 +11,26 @@ function Login({ setToken }) {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    // axios
-    //   .post("/api/users/login", { email, password })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     jwt.verify(
-    //       response.data.token,
-    //       process.env.REACT_APP_JWT_SIGNATURE,
-    //       (err, decoded) => {
-    //         if (err) {
-    //           console.log(err);
-    //         } else {
-    //           setToken(response.data.token);
-    //           history.push("/");
-    //         }
-    //       }
-    //     );
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    axios
+      .post("/api/users/login", { email, password })
+      .then((response) => {
+        console.log(response.data);
+        jwt.verify(
+          response.data.token,
+          process.env.REACT_APP_JWT_SIGNATURE,
+          (err, decoded) => {
+            if (err) {
+              console.log(err);
+            } else {
+              setToken(response.data.token);
+              history.push("/");
+            }
+          }
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
