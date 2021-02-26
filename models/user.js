@@ -16,12 +16,12 @@ const userSchema = new Schema({
   user_name: {
     type: String,
     trim: true,
-    required: "Username is a required field",
+    // required: "Username is a required field",
   },
   password: {
     type: String,
     trim: true,
-    required: "Password is a required field",
+    // required: "Password is a required field",
   },
   email: {
     type: String,

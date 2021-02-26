@@ -1,15 +1,51 @@
 // === DB: User Controller ===
 // --- Require dependencies ---
 const db = require("../models");
+const bcrypt = require("bcrypt");
 
 // --- DB Methods ---
 module.exports = {
-    // Return ALL Users
-    findAll: function (req, res) {
-        db.User.find(req.query)
-          .sort({ date: -1 })
-          .then((dbModel) => res.json(dbModel))
-          .catch((err) => res.status(422).json(err));
-    },
-    
-}
+  // Return ALL Users
+  findAll: function (req, res) {
+    db.User.find(req.query)
+      .sort({ date: -1 })
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
+  },
+  // Add an new user to the database
+  createNewUser: function (req, res) {
+    const userToCreate = {
+      email: req.body.email,
+    };
+    bcrypt.hash(req.body.password, 8, (err, hashedPassword) => {
+      if (err) throw new Error(err);
+      console.log(hashedPassword);
+      userToCreate.password = hashedPassword;
+      // TODO: Will need to update this
+      db.User.create(userToCreate)
+        .then((newUser) => {
+          res.json(newUser);
+        })
+        .catch((err) => {
+          res.status(500).end();
+        });
+    });
+  },
+  // Compare user credentials to submitted information to confirm identity
+  loginUser: function (req, res) {
+    db.User.findOne({ email: req.body.email })
+      .then((foundUser) => {
+        bcrypt.compare(req.body.password, foundUser.password, (err, result) => {
+          if (result) {
+            res.json(foundUser);
+          } else {
+            res.status(401).json(err);
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  },
+};
