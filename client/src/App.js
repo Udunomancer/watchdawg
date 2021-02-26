@@ -9,6 +9,7 @@ import AllRecords from "./pages/AllRecords/AllRecords";
 import EditEvent from "./pages/EditEvent/EditEvent";
 import EditRecord from "./pages/EditRecord/EditRecord";
 import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
 import NewEvent from "./pages/NewEvent/NewEvent";
 import NewRecord from "./pages/NewRecord/NewRecord";
 import SingleEvent from "./pages/SingleEvent/SingleEvent";
@@ -25,6 +26,7 @@ function App() {
           {/* General Page Routes */}
           <Route exact path="/" component={Home}/>
           <Route exact path="/admin" component={Admin}/>
+          <Route exact path="/login" component={Login}/>
           {/* Event Page Routes */}
           <Route exact path="/events" component={AllEvents}/>
           <Route exact path="/events/new" component={NewEvent}/>
