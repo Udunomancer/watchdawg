@@ -2,6 +2,7 @@
 // --- Require dependencies ---
 const db = require("../models");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 // --- DB Methods ---
 module.exports = {
@@ -24,7 +25,8 @@ module.exports = {
       // TODO: Will need to update this
       db.User.create(userToCreate)
         .then((newUser) => {
-          res.json(newUser);
+          const token = jwt.sign({ _id: newUser._id }, "supersecretpassword");
+          res.json({ token: token });
         })
         .catch((err) => {
           res.status(500).end();
@@ -37,7 +39,8 @@ module.exports = {
       .then((foundUser) => {
         bcrypt.compare(req.body.password, foundUser.password, (err, result) => {
           if (result) {
-            res.json(foundUser);
+            const token = jwt.sign({ _id: foundUser._id }, "supersecretpassword");
+            res.json({ token: token });
           } else {
             res.status(401).json(err);
           }
