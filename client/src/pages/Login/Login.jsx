@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 // --- import User Auth Context ---
+import AuthContext from "../../utils/UserAuth/AuthContext";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import jwt from "jsonwebtoken";
 
 function Login({ setToken }) {
+  const UserAuth = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

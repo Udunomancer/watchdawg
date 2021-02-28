@@ -4,4 +4,4 @@ const AuthContext = React.createContext({
   loggedIn: false
 });
 
-export default AuthContext;
+export default AuthContext; 
