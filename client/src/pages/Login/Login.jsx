@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// --- import User Auth Context ---
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import jwt from "jsonwebtoken";
@@ -41,41 +42,41 @@ function Login({ setToken }) {
         </div>
       </div>
       <div className="row">
-        <form className="col s12" onSubmit={handleFormSubmit}>
-          <div className="row">
-            <div className="col s3"></div>
-            <div className="input-field col s6">
-              <input
-                id="email"
-                type="email"
-                name="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
-              <label htmlFor="email">Email</label>
+          <form className="col s12" onSubmit={handleFormSubmit}>
+            <div className="row">
+              <div className="col s3"></div>
+              <div className="input-field col s6">
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+                <label htmlFor="email">Email</label>
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="col s3"></div>
-            <div className="input-field col s6">
-              <input
-                id="password"
-                type="password"
-                name="password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value.toLowerCase());
-                }}
-              />
-              <label htmlFor="password">Password</label>
+            <div className="row">
+              <div className="col s3"></div>
+              <div className="input-field col s6">
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value.toLowerCase());
+                  }}
+                />
+                <label htmlFor="password">Password</label>
+              </div>
             </div>
-          </div>
-          <div className="row center-align">
+            <div className="row center-align">
               <button className="waves-effect waves-light btn">Sign in!</button>
-          </div>
-        </form>
+            </div>
+          </form>
       </div>
     </div>
   );
