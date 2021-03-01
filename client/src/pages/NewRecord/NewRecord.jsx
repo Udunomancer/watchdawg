@@ -1,9 +1,12 @@
 import React from "react";
+import axios from "axios";
+import RecordForm from "../../components/RecordForm/RecordForm";
 
 function NewRecord() {
+    
     return (
-        <div>
-            <h1>New Record Page will go here</h1>
+        <div className="container">
+            <RecordForm />
         </div>
     )
 }

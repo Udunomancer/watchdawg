@@ -8,7 +8,6 @@ const recordSchema = new Schema({
     title: {
         type: String,
         trim: true,
-        required: "Enter a title for the Record",
     },
     cloud_url: {
         type: String,
