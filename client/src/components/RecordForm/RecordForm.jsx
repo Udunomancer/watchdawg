@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 function RecordForm() {
@@ -6,13 +7,18 @@ function RecordForm() {
     display: undefined,
     progress: 0,
     message: "",
-    imageDetails: {
-      title: "",
-      url: "",
-      description: "",
-      fileType: "",
-    },
+    title: "",
+    url: "",
+    description: "",
+    fileType: "",
   });
+
+  function handleInputChange(e) {
+    const id = e.target.id;
+    const value = e.target.value;
+
+    setRecord({ ...record, [id]: value });
+  }
 
   function selectFile(event) {
     if (record.display) {
@@ -22,25 +28,35 @@ function RecordForm() {
       ...record,
       file: event.target.files[0],
       display: URL.createObjectURL(event.target.files[0]),
-      imageDetails: {
-          fileType: event.target.files[0].type
-      }
+      fileType: event.target.files[0].type,
     });
   }
 
   function removePreview() {
-      URL.revokeObjectURL(record.display);
-      setRecord({
-          ...record,
-          file: undefined,
-          display: undefined,
-          progress: 0,
-          message: "",
-      })
+    URL.revokeObjectURL(record.display);
+    setRecord({
+      ...record,
+      file: undefined,
+      display: undefined,
+      progress: 0,
+      message: "",
+    });
   }
 
-  function consoleLog() {
-      console.log(record.file);
+  function upload() {
+    axios
+      .post("/api/records", {
+        file: record.file,
+        title: record.title,
+        description: record.description,
+        record_type: record.fileType,
+      })
+      .then((response) => {
+        console.log("Nice");
+      })
+      .catch((err) => {
+        console.log("Not Nice");
+      });
   }
 
   return (
@@ -54,7 +70,7 @@ function RecordForm() {
             <div className="preview">
               <h3>Image Preview</h3>
               <div>
-                <button className="btn" onClick={consoleLog}>Rotate File</button>
+                <button className="btn">Rotate File</button>
                 <button className="btn red" onClick={removePreview}>
                   Remove File
                 </button>
@@ -83,18 +99,29 @@ function RecordForm() {
         <div className="col s6">
           <h3>File Details</h3>
           <div className="input-field">
-            <input id="title" type="text"></input>
+            <input
+              id="title"
+              type="text"
+              value={record.title}
+              onChange={handleInputChange}
+            ></input>
             <label htmlFor="title">Record Title</label>
           </div>
           <div className="input-field">
-            <textarea id="description"></textarea>
+            <textarea
+              id="description"
+              value={record.description}
+              onChange={handleInputChange}
+            ></textarea>
             <label htmlFor="description">Record Description</label>
           </div>
         </div>
       </div>
       <div className="row">
         <div className="center">
-          <button className="btn center">Upload</button>
+          <button className="btn center" onClick={upload}>
+            Upload
+          </button>
         </div>
       </div>
     </>

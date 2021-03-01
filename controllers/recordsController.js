@@ -12,9 +12,11 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   create: function (req, res) {
-    db.Record.create(req.body)
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+    console.log(req.body);
+    res.json("done");
+    // db.Record.create(req.body)
+    //   .then((dbModel) => res.json(dbModel))
+    //   .catch((err) => res.status(422).json(err));
   },
   findById: function (req, res) {
     db.Record.findById(req.params.id)
