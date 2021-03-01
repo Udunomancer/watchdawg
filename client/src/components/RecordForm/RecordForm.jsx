@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function RecordForm() {
   const [record, setRecord] = useState({
     file: undefined,
-    preview: undefined,
+    display: undefined,
     progress: 0,
     message: "",
     imageDetails: {
@@ -15,14 +15,25 @@ function RecordForm() {
   });
 
   function selectFile(event) {
-    if (record.preview) {
-      URL.revokeObjectURL(record.preview);
+    if (record.display) {
+      URL.revokeObjectURL(record.display);
     }
     setRecord({
       ...record,
       file: event.target.files[0],
-      preview: URL.createObjectURL(event.target.files[0]),
+      display: URL.createObjectURL(event.target.files[0]),
     });
+  }
+
+  function removePreview() {
+      URL.revokeObjectURL(record.display);
+      setRecord({
+          ...record,
+          file: undefined,
+          display: undefined,
+          progress: 0,
+          message: "",
+      })
   }
 
   return (
@@ -32,18 +43,25 @@ function RecordForm() {
       </div>
       <div className="row">
         <div className="col s6">
-          {record.preview ? (
+          {record.display ? (
             <div className="preview">
+              <h3>Image Preview</h3>
+              <div>
+                <button className="btn red" onClick={removePreview}>
+                  Remove File
+                </button>
+              </div>
               <img
                 id="img-preview"
                 width="100%"
                 className="materialboxed"
-                src={record.preview}
+                src={record.display}
                 alt="Upload Preview"
               />
             </div>
           ) : (
             <div className="file-field input-field">
+              <h3>Upload File</h3>
               <div className="btn">
                 <span>Browse</span>
                 <input type="file" name="image" onChange={selectFile} />
@@ -55,6 +73,7 @@ function RecordForm() {
           )}
         </div>
         <div className="col s6">
+          <h3>File Details</h3>
           <div className="input-field">
             <input id="title" type="text"></input>
             <label htmlFor="title">Record Title</label>
