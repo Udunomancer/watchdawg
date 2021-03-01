@@ -1,39 +1,61 @@
 import React, { useState, useContext } from "react";
 // --- import User Auth Context ---
-import AuthContext from "../../utils/UserAuth/AuthContext";
+import { loginUser, useAuthContext, useAuthDispatch } from "../../utils/UserAuth/index";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import jwt from "jsonwebtoken";
 
 function Login({ setToken }) {
-  const UserAuth = useContext(AuthContext);
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useAuthDispatch();
+  const { loading, errorMessage } = useAuthContext();
 
   const history = useHistory();
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    axios
-      .post("/api/users/login", { email, password })
-      .then((response) => {
-        console.log(response.data);
-        jwt.verify(
-          response.data.token,
-          process.env.REACT_APP_JWT_SIGNATURE,
-          (err, decoded) => {
-            if (err) {
-              console.log(err);
-            } else {
-              setToken(response.data.token);
-              history.push("/");
-            }
-          }
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+
+    loginUser(dispatch, { email, password }).then((response) => {
+      console.log(response);
+    }
+    )
+    //   if(!response.data.token) { return };
+    //   history.push("/");
+    // } catch(error) {
+    //   console.log(error);
+    // }
+    
+    // try {
+    //   let response = await loginUser(dispatch, { email, password });
+    //   console.log("RESPONSE: " + response);
+    //   if(!response.data.token) return;
+    //   history.push("/");
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    // axios
+    //   .post("/api/users/login", { email, password })
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     jwt.verify(
+    //       response.data.token,
+    //       process.env.REACT_APP_JWT_SIGNATURE,
+    //       (err, decoded) => {
+    //         if (err) {
+    //           console.log(err);
+    //         } else {
+    //           setToken(response.data.token);
+    //           history.push("/");
+    //         }
+    //       }
+    //     );
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   }
 
   return (
@@ -41,6 +63,9 @@ function Login({ setToken }) {
       <div className="row">
         <div className="col s12">
           <h1 className="center-align">Welcome! Please login to continue</h1>
+          {/* {
+            errorMessage ? <p>{errorMessage}</p> : null
+          } */}
         </div>
       </div>
       <div className="row">

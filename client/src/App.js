@@ -1,7 +1,7 @@
 // --- import React Router dependencies ---
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// --- import Auth Context ---
-import AuthContext from "./utils/UserAuth/AuthContext";
+// --- import Auth Provider ---
+import { AuthProvider } from "./utils/UserAuth/index";
 // --- import universal NavBar ---
 import NavBar from "./components/NavBar/NavBar";
 // --- import pages for Router ---
@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <AuthContext.Provider value={{loggedIn: false}}>
+        <AuthProvider>
           <NavBar />
           <Switch>
             {/* General Page Routes */}
@@ -40,7 +40,7 @@ function App() {
             <Route exact path="/records/:id/edit" component={EditRecord} />
             <Route exact path="/records/:id" component={SingleRecord} />
           </Switch>
-        </AuthContext.Provider>
+        </AuthProvider>
       </Router>
     </div>
   );
