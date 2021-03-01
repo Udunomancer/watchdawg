@@ -22,6 +22,9 @@ function RecordForm() {
       ...record,
       file: event.target.files[0],
       display: URL.createObjectURL(event.target.files[0]),
+      imageDetails: {
+          fileType: event.target.files[0].type
+      }
     });
   }
 
@@ -36,6 +39,10 @@ function RecordForm() {
       })
   }
 
+  function consoleLog() {
+      console.log(record.file);
+  }
+
   return (
     <>
       <div className="row">
@@ -47,6 +54,7 @@ function RecordForm() {
             <div className="preview">
               <h3>Image Preview</h3>
               <div>
+                <button className="btn" onClick={consoleLog}>Rotate File</button>
                 <button className="btn red" onClick={removePreview}>
                   Remove File
                 </button>
