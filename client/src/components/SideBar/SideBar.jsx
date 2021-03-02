@@ -11,9 +11,7 @@ import { navListItems, userListItems } from "../MenuLists/MenuLists";
 // --- import custom Styles ---
 import useStyles from "../../utils/Styles/Styles";
 
-function SideBar({ open, closeSideBar }) {
-  
-  const classes = useStyles();
+function SideBar({ open, closeSideBar, classes }) {
 
   return (
     <Drawer

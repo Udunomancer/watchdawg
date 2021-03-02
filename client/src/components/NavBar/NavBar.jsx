@@ -12,9 +12,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import useStyles from "../../utils/Styles/Styles";
 import { NavLink } from "react-router-dom";
 
-function NavBar({ open, openSideBar }) {
-  
-  const classes = useStyles;
+function NavBar({ open, openSideBar, classes }) {
 
   return (
     <AppBar

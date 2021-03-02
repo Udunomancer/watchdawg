@@ -41,8 +41,8 @@ function App() {
       <div className={`App ${classes.root}`} >
         <Router>
           <AuthProvider>
-            <NavBar open={sideBarOpen} openSideBar={handleSideBarOpen}/>
-            <SideBar open={sideBarOpen} closeSideBar={handleSideBarClose} />
+            <NavBar open={sideBarOpen} openSideBar={handleSideBarOpen} classes={classes}/>
+            <SideBar open={sideBarOpen} closeSideBar={handleSideBarClose} classes={classes}/>
             <Switch>
               {/* General Page Routes */}
               <Route exact path="/" component={Home} />
