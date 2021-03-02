@@ -1,4 +1,7 @@
+// --- import default React dependency ---
 import React from "react";
+// --- import NavLink from react-router-dom ---
+
 // --- import Material UI dependencies ---
 import clsx from "clsx";
 import Drawer from "@material-ui/core/Drawer";
