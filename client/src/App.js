@@ -1,3 +1,5 @@
+// --- import baseline React dependencies ---
+import React, { useState } from "react";
 // --- import React Router dependencies ---
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // --- import Baseline from Material-ui ---
@@ -21,14 +23,23 @@ import SingleEvent from "./pages/SingleEvent/SingleEvent";
 import SingleRecord from "./pages/SingleRecord/SingleRecord";
 
 function App() {
+  
+  const [sideBarOpen, setSideBarOpen] = React.useState(false);
+  const handleSideBarOpen = () => {
+    setSideBarOpen(true);
+  };
+  const handleSideBarClose = () => {
+    setSideBarOpen(false);
+  }
+
   return (
     <>
       <CssBaseline />
       <div className="App">
         <Router>
           <AuthProvider>
-            <NavBar />
-            <SideBar />
+            <NavBar open={sideBarOpen} openSideBar={handleSideBarOpen}/>
+            {/* <SideBar /> */}
             <Switch>
               {/* General Page Routes */}
               <Route exact path="/" component={Home} />
