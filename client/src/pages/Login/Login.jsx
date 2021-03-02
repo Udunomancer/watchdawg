@@ -16,6 +16,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 // --- import custom components ---
 import Copyright from "../../components/Copyright/Copyright";
+// --- import custom Material UI styles ---
+import useStyles from "../../utils/Styles/Styles";
 // --- import User Auth Context ---
 import {
   loginUser,
@@ -26,38 +28,38 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import jwt from "jsonwebtoken";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: "100vh",
-  },
-  image: {
-    backgroundImage: "url(https://source.unsplash.com/random",
-    backgroundRepeat: "no-repeat",
-    backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[50]
-        : theme.palette.grey[900],
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: "100%",
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     height: "100vh",
+//   },
+//   image: {
+//     backgroundImage: "url(https://source.unsplash.com/random",
+//     backgroundRepeat: "no-repeat",
+//     backgroundColor:
+//       theme.palette.type === "light"
+//         ? theme.palette.grey[50]
+//         : theme.palette.grey[900],
+//     backgroundSize: "cover",
+//     backgroundPosition: "center",
+//   },
+//   paper: {
+//     margin: theme.spacing(8, 4),
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//   },
+//   avatar: {
+//     margin: theme.spacing(1),
+//     backgroundColor: theme.palette.secondary.main,
+//   },
+//   form: {
+//     width: "100%",
+//     marginTop: theme.spacing(1),
+//   },
+//   submit: {
+//     margin: theme.spacing(3, 0, 2),
+//   },
+// }));
 
 function Login({ setToken }) {
   const classes = useStyles();
