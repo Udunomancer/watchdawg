@@ -47,7 +47,9 @@ function App() {
               {/* General Page Routes */}
               <Route exact path="/" component={Home} />
               <Route exact path="/admin" component={Admin} />
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/login" render={(classes) => (
+                <Login classes={classes} />
+              )} />
               {/* Event Page Routes */}
               <Route exact path="/events" component={AllEvents} />
               <Route exact path="/events/new" component={NewEvent} />

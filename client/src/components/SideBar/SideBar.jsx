@@ -1,9 +1,8 @@
 // --- import default React dependency ---
 import React from "react";
-// --- import NavLink from react-router-dom ---
-
-// --- import Material UI dependencies ---
+// --- clsx dependency for appending multiple classes ---
 import clsx from "clsx";
+// --- import Material UI dependencies ---
 import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -12,7 +11,6 @@ import List from "@material-ui/core/List";
 // --- import custom components ---
 import { navListItems, userListItems } from "../MenuLists/MenuLists";
 // --- import custom Styles ---
-import useStyles from "../../utils/Styles/Styles";
 
 function SideBar({ open, closeSideBar, classes }) {
 

@@ -1,9 +1,13 @@
+// --- import default React dependency ---
 import React from "react";
+// --- import NavLink from react-router-dom ---
+import { NavLink } from "react-router-dom";
 // --- import Material UI dependencies ---
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
+// --- import Icons from Material-UI icons ---
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PeopleIcon from "@material-ui/icons/People";
@@ -17,7 +21,7 @@ export const navListItems = (
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
-            <ListItemText primary="Dashboard" />
+            <ListItemText primary="Events" />
         </ListItem>
         <ListItem button>
             <ListItemIcon>

@@ -16,8 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 // --- import custom components ---
 import Copyright from "../../components/Copyright/Copyright";
-// --- import custom Material UI styles ---
-import useStyles from "../../utils/Styles/Styles";
+
 // --- import User Auth Context ---
 import {
   loginUser,
@@ -61,8 +60,8 @@ import jwt from "jsonwebtoken";
 //   },
 // }));
 
-function Login({ setToken }) {
-  const classes = useStyles();
+function Login({ setToken, classes }) {
+  
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
