@@ -8,68 +8,85 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 // --- import Icons from Material-UI icons ---
+import HomeIcon from "@material-ui/icons/Home";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PeopleIcon from "@material-ui/icons/People";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import LayersIcon from "@material-ui/icons/Layers";
 import AssignmentIcon from "@material-ui/icons/Assignment";
+import PersonIcon from "@material-ui/icons/Person";
+import LockClosedIcon from "@material-ui/icons/Lock";
+import FileIcon from "@material-ui/icons/FileCopy";
+import NotificationsIcon from "@material-ui/icons/Notifications"
 
 export const navListItems = (
-    <div>
-        <ListItem button>
-            <ListItemIcon>
-                <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Events" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <ShoppingCartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Orders" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <PeopleIcon />
-            </ListItemIcon>
-            <ListItemText primary="Customers" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <BarChartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Reports" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <LayersIcon />
-            </ListItemIcon>
-            <ListItemText primary="Integrations" />
-        </ListItem>
-    </div>
+  <div>
+    <ListItem button component={NavLink} to="/">
+      <ListItemIcon>
+        <HomeIcon />
+      </ListItemIcon>
+      <ListItemText primary="Home" />
+    </ListItem>
+    <ListItem button component={NavLink} to="/events">
+      <ListItemIcon>
+        <DashboardIcon />
+      </ListItemIcon>
+      <ListItemText primary="Events" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <ShoppingCartIcon />
+      </ListItemIcon>
+      <ListItemText primary="N/A" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <PeopleIcon />
+      </ListItemIcon>
+      <ListItemText primary="N/A" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <BarChartIcon />
+      </ListItemIcon>
+      <ListItemText primary="N/A" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="N/A" />
+    </ListItem>
+  </div>
 );
 
 export const userListItems = (
-    <div>
-        <ListSubheader inset>Account Management</ListSubheader>
-        <ListItem button>
-            <ListItemIcon>
-                <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Current month" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Last quarter" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Year-end sale" />
-        </ListItem>
-    </div>
-)
+  <div>
+    <ListSubheader inset>Account Management</ListSubheader>
+    <ListItem button>
+      <ListItemIcon>
+        <PersonIcon />
+      </ListItemIcon>
+      <ListItemText primary="Profile" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <LockClosedIcon />
+      </ListItemIcon>
+      <ListItemText primary="Login" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <FileIcon />
+      </ListItemIcon>
+      <ListItemText primary="My Uploads" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <NotificationsIcon />
+      </ListItemIcon>
+      <ListItemText primary="Notifications" />
+    </ListItem>
+  </div>
+);
