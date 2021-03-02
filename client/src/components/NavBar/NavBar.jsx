@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+import PersonIcon from "@material-ui/icons/Person";
 // --- import Material-UI Theme Styles ---
 import useStyles from "../../utils/Styles/Styles";
 import { NavLink } from "react-router-dom";
@@ -30,7 +30,8 @@ function NavBar({ open, openSideBar, classes }) {
           <MenuIcon />
         </IconButton>
         <Typography
-          component="h1"
+          component={NavLink}
+          to="/"
           variant="h6"
           color="inherit"
           noWrap
@@ -38,9 +39,9 @@ function NavBar({ open, openSideBar, classes }) {
         >
           WatchDawg
         </Typography>
-        <IconButton color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <NotificationsIcon />
+        <IconButton color="inherit" component={NavLink} to="/login">
+          <Badge color="secondary">
+            <PersonIcon />
           </Badge>
         </IconButton>
       </Toolbar>
