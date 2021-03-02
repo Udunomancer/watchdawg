@@ -18,7 +18,6 @@ const recordSchema = new Schema({
     },
     record_type: {
         type: String,
-        required: "Record type required"
     },
 })
 
