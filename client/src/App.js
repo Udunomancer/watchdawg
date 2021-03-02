@@ -1,3 +1,4 @@
+import clsx from "clsx";
 // --- import baseline React dependencies ---
 import React, { useState } from "react";
 // --- import React Router dependencies ---
@@ -21,9 +22,11 @@ import NewEvent from "./pages/NewEvent/NewEvent";
 import NewRecord from "./pages/NewRecord/NewRecord";
 import SingleEvent from "./pages/SingleEvent/SingleEvent";
 import SingleRecord from "./pages/SingleRecord/SingleRecord";
+// ---import custom Material UI styles ---
+import useStyles from "./utils/Styles/Styles";
 
 function App() {
-  
+  const classes = useStyles();
   const [sideBarOpen, setSideBarOpen] = React.useState(false);
   const handleSideBarOpen = () => {
     setSideBarOpen(true);
@@ -35,11 +38,11 @@ function App() {
   return (
     <>
       <CssBaseline />
-      <div className="App">
+      <div className={`App ${classes.root}`} >
         <Router>
           <AuthProvider>
             <NavBar open={sideBarOpen} openSideBar={handleSideBarOpen}/>
-            {/* <SideBar /> */}
+            <SideBar open={sideBarOpen} closeSideBar={handleSideBarClose} />
             <Switch>
               {/* General Page Routes */}
               <Route exact path="/" component={Home} />

@@ -1,20 +1,25 @@
 import React from "react";
+// --- import Material-UI components ---
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+// --- import customer Material UI styles ---
+import useStyles from "../../utils/Styles/Styles";
 
 function Home() {
+    
+    const classes = useStyles();
+    
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col s12">
-                    <div className="carousel">
-                        <a className="carousel-item" href="#"><img src="https://via.placeholder.com/350x150" /></a>
-                        <a className="carousel-item" href="#"><img src="https://via.placeholder.com/350x150" /></a>
-                        <a className="carousel-item" href="#"><img src="https://via.placeholder.com/350x150" /></a>
-                        <a className="carousel-item" href="#"><img src="https://via.placeholder.com/350x150" /></a>
-                        <a className="carousel-item" href="#"><img src="https://via.placeholder.com/350x150" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <main className={classes.content}>
+            <div className={classes.appBarSpacer} />
+            <Container maxWidth="lg" className="container">
+                <Grid container spacing={3}>
+                    <Grid item xs={12} md={8} lg={9}>
+
+                    </Grid>
+                </Grid>
+            </Container>
+        </main>
     );
 };
 
