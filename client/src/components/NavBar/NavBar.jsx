@@ -1,4 +1,8 @@
+// --- import default React dependency ---
 import React from "react";
+// --- import NavLink from react-router-dom ---
+import { NavLink } from "react-router-dom";
+// --- clsx dependency for appending multiple classes ---
 import clsx from "clsx";
 // --- import Material-UI dependencies ---
 import AppBar from "@material-ui/core/AppBar";
@@ -8,9 +12,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge";
 import PersonIcon from "@material-ui/icons/Person";
-// --- import Material-UI Theme Styles ---
-import useStyles from "../../utils/Styles/Styles";
-import { NavLink } from "react-router-dom";
+
 
 function NavBar({ open, openSideBar, classes }) {
 
@@ -46,14 +48,6 @@ function NavBar({ open, openSideBar, classes }) {
         </IconButton>
       </Toolbar>
     </AppBar>
-    // <nav>
-    //     <div className="nav-wrapper">
-    //         <NavLink to="/" className="brand-logo">Watchdawg</NavLink>
-    //         <ul id="nav-mobild" className="right hide-on-med-and-down">
-    //             <li><NavLink to="/events">All Events</NavLink></li>
-    //         </ul>
-    //     </div>
-    // </nav>
   );
 }
 
