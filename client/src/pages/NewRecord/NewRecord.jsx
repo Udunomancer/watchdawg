@@ -14,25 +14,28 @@ import PageStyles from "../../utils/Styles/PageStyles";
 // --- import custom components ---
 import RecordDetailsForm from "../../components/RecordDetailsForm/RecordDetailsForm";
 import RecordFileForm from "../../components/RecordFileForm/RecordFileForm";
+import RecordEventForm from "../../components/RecordEventForm/RecordEventForm";
+import RecordReviewForm from "../../components/RecordReviewForm/RecordReviewForm";
 
 const steps = ["Upload File", "File Details", "Add to Event", "Confirm Upload"];
-
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <RecordFileForm />;
-    case 1:
-      return <RecordDetailsForm />;
-    case 2:
-      return;
-    default:
-      throw new Error("Unknown step");
-  }
-}
 
 function NewRecord() {
   // Use imported styles
   const classes = PageStyles();
+
+  // State to store file and file details until upload
+  const [file, setFile] = useState(undefined);
+  const [fileTitle, setFileTitle] = useState("");
+  const [fileDescription, setFileDescription] = useState("");
+  const [fileDate, setFileDate] = useState("");
+  const [fileLatitude, setFileLatitude] = useState("");
+  const [fileLongitude, setFileLongitude] = useState("");
+  const [fileAddressOne, setFileAddressOne] = useState("");
+  const [fileAddressTwo, setFileAddressTwo] = useState("");
+  const [fileCity, setFileCity] = useState("");
+  const [fileState, setFileState] = useState("");
+  const [fileZip, setFileZip] = useState("");
+  const [fileCountry, setFileCountry] = useState("");
 
   // Set up state to track current file upload steps
   const [activeStep, setActiveStep] = useState(0);
@@ -71,7 +74,38 @@ function NewRecord() {
             </>
           ) : (
             <>
-              {getStepContent(activeStep)}
+              {activeStep === 0 ? (
+                <RecordFileForm />
+              ) : activeStep === 1 ? (
+                <RecordDetailsForm
+                  fileTitle={fileTitle}
+                  setFileTitle={setFileTitle}
+                  fileDescription={fileDescription}
+                  setFileDescription={setFileDescription}
+                  fileDate={fileDate}
+                  setFileDate={setFileDate}
+                  fileLatitude={fileLatitude}
+                  setFileLatitude={setFileLatitude}
+                  fileLongitude={fileLongitude}
+                  setFileLongitude={setFileLongitude}
+                  fileAddressOne={fileAddressOne}
+                  setFileAddressOne={setFileAddressOne}
+                  fileAddressTwo={fileAddressTwo}
+                  setFileAddressTwo={setFileAddressTwo}
+                  fileCity={fileCity}
+                  setFileCity={setFileCity}
+                  fileState={fileState}
+                  setFileState={setFileState}
+                  fileZip={fileZip}
+                  setFileZip={setFileZip}
+                  fileCountry={fileCountry}
+                  setFileCountry={setFileCountry}
+                />
+              ) : activeStep === 2 ? (
+                <RecordEventForm />
+              ) : activeStep === 3 ? (
+                <RecordReviewForm />
+              ) : null}
               <div className={classes.buttons}>
                 {activeStep !== 0 && (
                   <Button onClick={handleBack} className={classes.button}>
