@@ -69,7 +69,7 @@ export const userListItems = (
       </ListItemIcon>
       <ListItemText primary="Profile" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={NavLink} to="/login">
       <ListItemIcon>
         <LockClosedIcon />
       </ListItemIcon>

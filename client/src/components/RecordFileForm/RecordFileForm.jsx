@@ -1,5 +1,5 @@
 // --- import default React dependency ---
-import React from "react";
+import React, { useEffect, useState } from "react";
 // --- import Material-UI dependencies ---
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -19,37 +19,49 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function RecordFileForm() {
+function RecordFileForm(props) {
+  // Use imported styles
   const classes = useStyles();
 
   return (
     <>
       <Grid container spacing={3}>
-        <Grid container alignItems="center" justify="center" item xs={12} sm={6}>
+        <Grid
+          container
+          alignItems="center"
+          justify="center"
+          item
+          xs={12}
+          sm={6}
+        >
           <Button variant="contained" color="primary" component="label">
             Upload File
-            <input type="file" hidden />
+            <input type="file" hidden onChange={props.handleFileUpload} />
           </Button>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Card>
-            <CardHeader
-              title={<Typography variant="h6">File Preview</Typography>}
-              subheader={
-                <Typography variant="subtitle2">ExampleFilePath.jpg</Typography>
-              }
-              action={
-                <IconButton>
-                  <CancelIcon />
-                </IconButton>
-              }
-            />
-            <CardMedia
-              className={classes.media}
-              image="https://via.placeholder.com/350x350"
-              title="Preview Image"
-            />
-          </Card>
+          {props.file.has("image") && (
+            <Card>
+              <CardHeader
+                title={<Typography variant="h6">File Preview</Typography>}
+                subheader={
+                  <Typography variant="subtitle2">
+                    Confirm the correct file appears below
+                  </Typography>
+                }
+                action={
+                  <IconButton>
+                    <CancelIcon />
+                  </IconButton>
+                }
+              />
+              <CardMedia
+                className={classes.media}
+                image={props.imageURL ? props.imageURL : "https://via.placeholder.com/350x350"}
+                title="Preview Image"
+              />
+            </Card>
+          )}
         </Grid>
       </Grid>
     </>

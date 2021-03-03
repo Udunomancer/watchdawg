@@ -24,7 +24,7 @@ function NewRecord() {
   const classes = PageStyles();
 
   // State to store file and file details until upload
-  const [file, setFile] = useState(undefined);
+  const [file, setFile] = useState(new FormData());
   const [fileTitle, setFileTitle] = useState("");
   const [fileDescription, setFileDescription] = useState("");
   const [fileDate, setFileDate] = useState("");
@@ -37,6 +37,9 @@ function NewRecord() {
   const [fileZip, setFileZip] = useState("");
   const [fileCountry, setFileCountry] = useState("");
 
+  // useState to store a URL to a preview image
+  const [imageURL, setImageURL] = useState();
+
   // Set up state to track current file upload steps
   const [activeStep, setActiveStep] = useState(0);
 
@@ -47,6 +50,18 @@ function NewRecord() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
+
+  const handleFileUpload = (event) => {
+    let tempFile = new FormData();
+
+    if(imageURL) {
+      URL.revokeObjectURL(imageURL);
+    }
+    tempFile.append("image", event.target.files[0]);
+    setFile(tempFile);
+    setImageURL(URL.createObjectURL(event.target.files[0]));
+  };
+  // axios.post("route", object including formData, )
 
   return (
     <main className={classes.layout}>
@@ -75,7 +90,11 @@ function NewRecord() {
           ) : (
             <>
               {activeStep === 0 ? (
-                <RecordFileForm />
+                <RecordFileForm
+                  file={file}
+                  imageURL={imageURL}
+                  handleFileUpload={handleFileUpload}
+                />
               ) : activeStep === 1 ? (
                 <RecordDetailsForm
                   fileTitle={fileTitle}
