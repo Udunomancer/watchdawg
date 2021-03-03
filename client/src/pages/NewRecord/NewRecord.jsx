@@ -56,6 +56,39 @@ function NewRecord() {
               <Typography component="h1" variant="h4" align="center">
                   Upload Image/Video
               </Typography>
+              <Stepper activeStep={activeStep} className={classes.stepper}>
+                  {steps.map((label) => (
+                      <Step key={label}>
+                          <StepLabel>{label}</StepLabel>
+                      </Step>
+                  ))}
+              </Stepper>
+              <>
+              {activeStep === steps.length ? (
+                  <>
+                    <Typography variant="h5" gutterBottom>
+                        Thank you for your upload.
+                    </Typography>
+                    <Typography variant="subtitle1">
+                        Your upload can now be found in your images, or in the event collection.
+                    </Typography>
+                    </>
+              ) : (
+                  <>
+                  {getStepContent(activeStep)}
+                  <div className={classes.buttons}>
+                      {activeStep !== 0 && (
+                          <Button onClick={handleBack} className={classes.button}>
+                              Back
+                          </Button>
+                      )}
+                      <Button variant="contained" color="primary" onClick={handleNext} className={classes.button}>
+                          {activeStep === steps.length - 1 ? "Upload" : "Next"}
+                      </Button>
+                  </div>
+                  </>
+              )}
+              </>
           </Paper>
       </main>
   );
