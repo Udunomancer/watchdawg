@@ -16,8 +16,16 @@ module.exports = {
   create: function (req, res) {
     console.log(req.body.file);
     db.Record.create({
-      title: req.body.title,
-      description: req.body.description,
+      fileTitle: req.body.fileTitle,
+      fileDescription: req.body.fileDescription,
+      fileLatitude: req.body.fileLatitude,
+      fileLongitude: req.body.fileLongitude,
+      fileAddressOne: req.body.fileAddressOne,
+      fileAddressTwo: req.body.fileAddressTwo,
+      fileCity: req.body.fileCity,
+      fileState: req.body.fileState,
+      fileZip: req.body.fileZip,
+      fileCountry: req.body.fileCountry
     })
       // .then((dbModel) => {
       //   console.log(dbModel);

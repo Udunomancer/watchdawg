@@ -54,6 +54,10 @@ const PageStyles = makeStyles((theme) => ({
   stepper: {
     padding: theme.spacing(3, 0, 5),
   },
+  media: {
+    height: 0,
+    paddingTop: "56.25%",
+  },
   buttons: {
     display: "flex",
     justifyContent: "flex-end",
