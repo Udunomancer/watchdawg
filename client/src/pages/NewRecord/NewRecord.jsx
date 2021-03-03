@@ -13,13 +13,14 @@ import Typography from "@material-ui/core/Typography";
 import PageStyles from "../../utils/Styles/PageStyles";
 // --- import custom components ---
 import RecordDetailsForm from "../../components/RecordDetailsForm/RecordDetailsForm";
+import RecordFileForm from "../../components/RecordFileForm/RecordFileForm";
 
 const steps = ["Upload File", "File Details", "Add to Event", "Confirm Upload"];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return;
+      return <RecordFileForm />;
     case 1:
       return <RecordDetailsForm />;
     case 2:
