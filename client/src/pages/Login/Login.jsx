@@ -1,5 +1,5 @@
 // --- import dependencies from React ---
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 // --- import Material-UI components ---
 import Avatar from "@material-ui/core/Avatar";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -60,8 +60,9 @@ import jwt from "jsonwebtoken";
 //   },
 // }));
 
-function Login({ setToken, classes }) {
+function Login({ setToken }) {
   
+  const classes = {};
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
