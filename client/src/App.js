@@ -1,4 +1,3 @@
-import clsx from "clsx";
 // --- import baseline React dependencies ---
 import React, { useState } from "react";
 // --- import React Router dependencies ---
@@ -27,7 +26,7 @@ import useStyles from "./utils/Styles/Styles";
 
 function App() {
   const classes = useStyles();
-  const [sideBarOpen, setSideBarOpen] = React.useState(false);
+  const [sideBarOpen, setSideBarOpen] = useState(false);
   const handleSideBarOpen = () => {
     setSideBarOpen(true);
   };
