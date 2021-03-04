@@ -1,13 +1,10 @@
 // --- import dependencies from React ---
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 // --- import Material-UI components ---
 import Avatar from "@material-ui/core/Avatar";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
@@ -21,22 +18,22 @@ import Copyright from "../../components/Copyright/Copyright";
 // --- import User Auth Context ---
 import {
   loginUser,
-  useAuthContext,
+  // useAuthContext,
   useAuthDispatch,
 } from "../../utils/UserAuth/index";
-import axios from "axios";
-import { useHistory } from "react-router-dom";
-import jwt from "jsonwebtoken";
+// import axios from "axios";
+// import { useHistory } from "react-router-dom";
+// import jwt from "jsonwebtoken";
 
-function Login({ setToken }) {
+function Login() {
   const classes = PageStyles();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useAuthDispatch();
-  const { loading, errorMessage } = useAuthContext();
+  // const { loading, errorMessage } = useAuthContext();
 
-  const history = useHistory();
+  // const history = useHistory();
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -129,7 +126,6 @@ function Login({ setToken }) {
                   id="password"
                   label="Password"
                   type="password"
-                  id="password"
                   autoComplete="current-password"
                   value={password}
                   onChange={(e) => {

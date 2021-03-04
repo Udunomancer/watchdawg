@@ -1,7 +1,7 @@
 // --- import default React dependency ---
-import React, { useState, useEffect } from "react";
-
-import axios from "axios";
+import React, { useState } from "react";
+// import { useHistory } from "react-router-dom";
+// import axios from "axios";
 // --- import Material-UI dependencies ---
 import Paper from "@material-ui/core/Paper";
 import Stepper from "@material-ui/core/Stepper";

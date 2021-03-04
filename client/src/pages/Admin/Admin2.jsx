@@ -1,5 +1,6 @@
 // --- import default React dependencies ---
 import React, { useEffect, useState } from "react";
+// import { useHistory, useParams } from "react-router-dom";
 // --- import Material-UI dependencies ---
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -17,10 +18,13 @@ import Title from "../../components/Title/Title";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-function AllEvents() {
+function Admin2() {
   // use import styles
   const classes = useStyles();
   const [events, setEvents] = useState([]);
+
+  // const history = useHistory();
+  // const { id } = useParams();
 
   useEffect(() => {
     axios
@@ -33,6 +37,18 @@ function AllEvents() {
       });
   }, []);
 
+  function handleDeleteClick(event) {
+    
+    axios
+      .delete(`/api/events/${event.currentTarget.id}`)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <main className={classes.content}>
       <div className={classes.appBarSpacer} />
@@ -40,23 +56,43 @@ function AllEvents() {
         <Grid container spacing={3}>
           <Grid item xs={12} md={4} lg={12}>
             <Paper className={classes.paper}>
-              <Title>All Events</Title>
+              <Title>Take Action</Title>
               <Table size="small">
                 <TableHead>
                   <TableRow>
                     <TableCell align="center">Title</TableCell>
                     <TableCell align="center">Location</TableCell>
                     <TableCell align="center">Time</TableCell>
-                    <TableCell align="center">See More</TableCell>
+                    <TableCell align="center"></TableCell>
+                    <TableCell align="center"></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {events.map((event) =>(
+                  {events.map((event) => (
                     <TableRow key={event._id}>
                       <TableCell align="center">{event.title}</TableCell>
-                      <TableCell align="center">{event.latitude}, {event.longitude}</TableCell>
+                      <TableCell align="center">
+                        {event.latitude}, {event.longitude}
+                      </TableCell>
                       <TableCell align="center">Time</TableCell>
-                      <TableCell align="center"><Button component={Link} to={`/events/${event._id}`}>View Event</Button></TableCell>
+                      <TableCell align="center">
+                        <Button
+                          variant="outlined"
+                          component={Link}
+                          to={`/events/${event._id}/edit`}
+                        >
+                          Edit Event
+                        </Button>
+                      </TableCell>
+                      <TableCell id={event._id}>
+                        <Button
+                          variant="outlined"
+                          id={event._id}
+                          onClick={handleDeleteClick}
+                        >
+                          Delete
+                        </Button>
+                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -106,4 +142,4 @@ function AllEvents() {
   );
 }
 
-export default AllEvents;
+export default Admin2;

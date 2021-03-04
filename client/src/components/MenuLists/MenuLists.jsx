@@ -11,10 +11,11 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import HomeIcon from "@material-ui/icons/Home";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import NewIcon from "@material-ui/icons/NewReleases";
-import PersonIcon from "@material-ui/icons/Person";
+import AppsIcon from "@material-ui/icons/Apps"
+// import PersonIcon from "@material-ui/icons/Person";
 import LockClosedIcon from "@material-ui/icons/Lock";
-import FileIcon from "@material-ui/icons/FileCopy";
-import NotificationsIcon from "@material-ui/icons/Notifications"
+// import FileIcon from "@material-ui/icons/FileCopy";
+// import NotificationsIcon from "@material-ui/icons/Notifications"
 
 export const navListItems = (
   <div>
@@ -72,11 +73,17 @@ export const userListItems = (
       </ListItemIcon>
       <ListItemText primary="Login" />
     </ListItem>
-    <ListItem button component={NavLink} to="/">
+    {/* <ListItem button component={NavLink} to="/">
       <ListItemIcon>
         <LockClosedIcon />
       </ListItemIcon>
       <ListItemText primary="New User" />
+    </ListItem> */}
+    <ListItem button component={NavLink} to="/admin">
+      <ListItemIcon>
+        <AppsIcon />
+      </ListItemIcon>
+      <ListItemText primary="Administration" />
     </ListItem>
     {/* <ListItem button>
       <ListItemIcon>

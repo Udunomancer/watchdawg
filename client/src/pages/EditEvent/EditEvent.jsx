@@ -3,14 +3,14 @@ import React from "react";
 import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 // --- import Material-UI dependencies ---
-import Paper from "@material-ui/core/Paper";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+// import Paper from "@material-ui/core/Paper";
+// import Stepper from "@material-ui/core/Stepper";
+// import Step from "@material-ui/core/Step";
+// import StepLabel from "@material-ui/core/StepLabel";
+// import Button from "@material-ui/core/Button";
+// import Typography from "@material-ui/core/Typography";
 // --- import custom Material-UI styles ---
-import PageStyles from "../../utils/Styles/PageStyles";
+// import PageStyles from "../../utils/Styles/PageStyles";
 // --- import custom components ---
 import EventForm from "../../components/EventForm/EventForm";
 

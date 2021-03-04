@@ -5,11 +5,11 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 
-function RecordDetailsForm(props) {
+function EventDetailForm(props) {
   return (
     <>
       <Typography variant="h5" gutterBottom>
-        File Details
+        Event Details
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12}>
@@ -18,9 +18,9 @@ function RecordDetailsForm(props) {
             id="title"
             name="title"
             label="Title"
-            value={props.fileTitle}
+            value={props.title}
             onChange={(e) => {
-              props.setFileTitle(e.target.value);
+              props.setTitle(e.target.value);
             }}
             fullWidth
           />
@@ -32,9 +32,9 @@ function RecordDetailsForm(props) {
             id="description"
             name="description"
             label="Description"
-            value={props.fileDescription}
+            value={props.description}
             onChange={(e) => {
-              props.setFileDescription(e.target.value);
+              props.setDescription(e.target.value);
             }}
             fullWidth
           />
@@ -47,9 +47,9 @@ function RecordDetailsForm(props) {
             id="latitude"
             name="latitude"
             label="Latitude"
-            value={props.fileLatitude}
+            value={props.latitude}
             onChange={(e) => {
-              props.setFileLatitude(e.target.value);
+              props.setLatitude(e.target.value);
             }}
             fullWidth
           />
@@ -59,9 +59,9 @@ function RecordDetailsForm(props) {
             id="longitude"
             name="longitude"
             label="Longitude"
-            value={props.fileLongitude}
+            value={props.longitude}
             onChange={(e) => {
-              props.setFileLongitude(e.target.value);
+              props.setLongitude(e.target.value);
             }}
             fullWidth
           />
@@ -71,9 +71,9 @@ function RecordDetailsForm(props) {
             id="address1"
             name="address1"
             label="Address Line 1"
-            value={props.fileAddressOne}
+            value={props.addressOne}
             onChange={(e) => {
-              props.setFileAddressOne(e.target.value);
+              props.setAddressOne(e.target.value);
             }}
             fullWidth
           />
@@ -83,9 +83,9 @@ function RecordDetailsForm(props) {
             id="address2"
             name="address2"
             label="Address Line2"
-            value={props.fileAddressTwo}
+            value={props.addressTwo}
             onChange={(e) => {
-              props.setFileAddressTwo(e.target.value);
+              props.setAddressTwo(e.target.value);
             }}
             fullWidth
           />
@@ -95,9 +95,9 @@ function RecordDetailsForm(props) {
             id="city"
             name="city"
             label="City"
-            value={props.fileCity}
+            value={props.city}
             onChange={(e) => {
-              props.setFileCity(e.target.value);
+              props.setCity(e.target.value);
             }}
             fullWidth
           />
@@ -107,9 +107,9 @@ function RecordDetailsForm(props) {
             id="state"
             name="state"
             label="State/Province/Region"
-            value={props.fileState}
+            value={props.state}
             onChange={(e) => {
-              props.setFileState(e.target.value);
+              props.setState(e.target.value);
             }}
             fullWidth
           />
@@ -119,9 +119,9 @@ function RecordDetailsForm(props) {
             id="zip"
             name="zip"
             label="Zip / Postal Code"
-            value={props.fileZip}
+            value={props.zip}
             onChange={(e) => {
-              props.setFileZip(e.target.value);
+              props.setZip(e.target.value);
             }}
             fullWidth
           />
@@ -131,9 +131,9 @@ function RecordDetailsForm(props) {
             id="country"
             name="country"
             label="Country"
-            value={props.fileCountry}
+            value={props.country}
             onChange={(e) => {
-              props.setFileCountry(e.target.value);
+              props.setCountry(e.target.value);
             }}
             fullWidth
           />
@@ -143,4 +143,4 @@ function RecordDetailsForm(props) {
   );
 }
 
-export default RecordDetailsForm;
+export default EventDetailForm;

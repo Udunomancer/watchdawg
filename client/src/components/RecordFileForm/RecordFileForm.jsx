@@ -1,5 +1,5 @@
 // --- import default React dependency ---
-import React, { useEffect, useState } from "react";
+import React from "react";
 // --- import Material-UI dependencies ---
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";

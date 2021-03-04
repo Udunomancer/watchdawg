@@ -20,7 +20,7 @@ router
   .get(eventsController.findEventRecordsWithId)
 
 router
-  .route("/:id/records/:rid")
+  .route("/:id/records/:id")
   .put(eventsController.addRecordToEvent);
 
 module.exports = router;

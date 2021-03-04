@@ -14,6 +14,9 @@ const eventSchema = new Schema({
     type: String,
     trim: true,
   },
+  date: {
+    type: Date
+  },
   latitude: {
     type: Number,
     required: "Both latitude and longitude are required.",
@@ -22,9 +25,29 @@ const eventSchema = new Schema({
     type: Number,
     required: "Both latitude and longitude are required.",
   },
-  time: {
-    type: Date,
-    // required: "A Time-stamp is required for an event.",
+  addressOne: {
+    type: String,
+    trim: true
+  },
+  addressTwo: {
+    type: String,
+    trim: true
+  },
+  city: {
+    type: String,
+    trim: true
+  },
+  state: {
+    type: String,
+    trim: true
+  },
+  zip: {
+    type: String,
+    trim: true
+  },
+  country: {
+    type: String,
+    trim: true
   },
   records: [
     {

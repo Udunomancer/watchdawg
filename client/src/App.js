@@ -10,16 +10,16 @@ import { AuthProvider } from "./utils/UserAuth/index";
 import NavBar from "./components/NavBar/NavBar";
 import SideBar from "./components/SideBar/SideBar";
 // --- import pages for Router ---
-import Admin from "./pages/Admin/Admin";
+import Admin2 from "./pages/Admin/Admin2";
 import AllEvents from "./pages/AllEvents/AllEvents";
 import AllRecords from "./pages/AllRecords/AllRecords";
-import EditEvent from "./pages/EditEvent/EditEvent";
+import EditEvent2 from "./pages/EditEvent/EditEvent2";
 import EditRecord from "./pages/EditRecord/EditRecord";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
-import NewEvent from "./pages/NewEvent/NewEvent";
+import NewEvent2 from "./pages/NewEvent/NewEvent2";
 import NewRecord from "./pages/NewRecord/NewRecord";
-import SingleEvent from "./pages/SingleEvent/SingleEvent";
+import SingleEvent2 from "./pages/SingleEvent/SingleEvent2";
 import SingleRecord from "./pages/SingleRecord/SingleRecord";
 // ---import custom Material UI styles ---
 import useStyles from "./utils/Styles/Styles";
@@ -45,15 +45,15 @@ function App() {
             <Switch>
               {/* General Page Routes */}
               <Route exact path="/" component={Home} />
-              <Route exact path="/admin" component={Admin} />
+              <Route exact path="/admin" component={Admin2} />
               <Route exact path="/login" render={(classes) => (
                 <Login classes={classes} />
               )} />
               {/* Event Page Routes */}
               <Route exact path="/events" component={AllEvents} />
-              <Route exact path="/events/new" component={NewEvent} />
-              <Route exact path="/events/:id/edit" component={EditEvent} />
-              <Route exact path="/events/:id" component={SingleEvent} />
+              <Route exact path="/events/new" component={NewEvent2} />
+              <Route exact path="/events/:id/edit" component={EditEvent2} />
+              <Route exact path="/events/:id" component={SingleEvent2} />
               {/* Record Page Routes */}
               <Route exact path="/records" component={AllRecords} />
               <Route exact path="/records/new" component={NewRecord} />
