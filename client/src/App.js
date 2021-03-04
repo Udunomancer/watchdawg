@@ -56,9 +56,7 @@ function App() {
               <Route exact path="/events/:id" component={SingleEvent} />
               {/* Record Page Routes */}
               <Route exact path="/records" component={AllRecords} />
-              <Route exact path="/records/new" render={(classes) => (
-                 <NewRecord classes={classes} />
-              )} />
+              <Route exact path="/records/new" component={NewRecord} />
               <Route exact path="/records/:id/edit" component={EditRecord} />
               <Route exact path="/records/:id" component={SingleRecord} />
             </Switch>

@@ -10,10 +10,7 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 // --- import Icons from Material-UI icons ---
 import HomeIcon from "@material-ui/icons/Home";
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import PeopleIcon from "@material-ui/icons/People";
-import BarChartIcon from "@material-ui/icons/BarChart";
-import LayersIcon from "@material-ui/icons/Layers";
+import NewIcon from "@material-ui/icons/NewReleases";
 import PersonIcon from "@material-ui/icons/Person";
 import LockClosedIcon from "@material-ui/icons/Lock";
 import FileIcon from "@material-ui/icons/FileCopy";
@@ -33,13 +30,13 @@ export const navListItems = (
       </ListItemIcon>
       <ListItemText primary="Events" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={NavLink} to="/events/new">
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <NewIcon />
       </ListItemIcon>
-      <ListItemText primary="N/A" />
+      <ListItemText primary="New Event" />
     </ListItem>
-    <ListItem button>
+    {/* <ListItem button>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
@@ -56,26 +53,32 @@ export const navListItems = (
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="N/A" />
-    </ListItem>
+    </ListItem> */}
   </div>
 );
 
 export const userListItems = (
   <div>
     <ListSubheader inset>Account Management</ListSubheader>
-    <ListItem button>
+    {/* <ListItem button>
       <ListItemIcon>
         <PersonIcon />
       </ListItemIcon>
       <ListItemText primary="Profile" />
-    </ListItem>
+    </ListItem> */}
     <ListItem button component={NavLink} to="/login">
       <ListItemIcon>
         <LockClosedIcon />
       </ListItemIcon>
       <ListItemText primary="Login" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={NavLink} to="/">
+      <ListItemIcon>
+        <LockClosedIcon />
+      </ListItemIcon>
+      <ListItemText primary="New User" />
+    </ListItem>
+    {/* <ListItem button>
       <ListItemIcon>
         <FileIcon />
       </ListItemIcon>
@@ -86,6 +89,6 @@ export const userListItems = (
         <NotificationsIcon />
       </ListItemIcon>
       <ListItemText primary="Notifications" />
-    </ListItem>
+    </ListItem> */}
   </div>
 );
